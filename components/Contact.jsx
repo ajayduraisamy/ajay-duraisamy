@@ -98,12 +98,12 @@ const Contact = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: "2de2e3b3-ec01-4115-b0b2-803007e73484", // your public Web3Forms key
+          access_key: "2de2e3b3-ec01-4115-b0b2-803007e73484", 
           name: data.name,
           email: data.email,
           message: data.message,
           subject: "New message from Portfolio",
-          redirect: "", // optional
+          redirect: "", 
         }),
       });
 

@@ -1,9 +1,8 @@
 import {
-
   FaGithub,
   FaInstagram,
   FaLinkedin,
- 
+
   FaWhatsapp,
 } from "react-icons/fa";
 
@@ -17,13 +16,13 @@ const socialIcons = [
   },
   { Icon: FaGithub, link: "https://github.com/ajayduraisamy", label: "Github" },
   { Icon: FaWhatsapp, link: "https://wa.me/+917373327552", label: "Whatsapp" },
-    
+
   {
     Icon: FaInstagram,
-    link: "https://www.instagram.com/ajeyy_d_07?igsh=MXNodTdyNWpudTJ5bQ==",
+    link: "https://www.instagram.com/ajeyy_d_07/",
     label: "Instagram",
   },
- 
+
   {
     Icon: MdEmail,
     link: "mailto:ajayduraisamy@gmail.com",

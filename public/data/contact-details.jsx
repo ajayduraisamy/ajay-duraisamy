@@ -28,7 +28,7 @@ const contactDetails = [
     id: 4,
     type: "Instagram",
     value: "@ajayduraisamy",
-    link: "https://instagram.com/ajayduraisamy",
+    link: "https://www.instagram.com/ajeyy_d_07/",
     icon: FaInstagram,
   },
 ];

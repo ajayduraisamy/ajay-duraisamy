@@ -13,17 +13,39 @@ import { useInView } from "framer-motion";
 import Image from "next/image";
 import { PortfolioData } from "@/public/data/portfolio-data";
 
-const containerAnim = {
+const uptoDown = {
   initial: { opacity: 0 },
-  animate: { opacity: 1, transition: { duration: 0.3, staggerChildren: 0.3 } },
+  animate: {
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+      staggerChildren: 0.3,
+    },
+  },
 };
-const itemAnim = {
+const uptoDownItem = {
   initial: { y: 400, opacity: 0 },
-  animate: { y: 0, opacity: 1, transition: { duration: 0.3, type: "spring", stiffness: 50 } },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.3,
+      type: "spring",
+      stiffness: 50,
+    },
+  },
 };
-const scalingAnim = {
+const scaling = {
   initial: { opacity: 0, scale: 0 },
-  animate: { scale: 1, opacity: 1, transition: { duration: 0.5, type: "spring", stiffness: 100 } },
+  animate: {
+    scale: 1,
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      type: "spring",
+      stiffness: 100,
+    },
+  },
 };
 
 const Hero = () => {
@@ -32,43 +54,73 @@ const Hero = () => {
   const isInView = useInView(containerRef);
   const { scrollToSection } = useScrollSpy();
 
-  const handleClick = (item) => scrollToSection(item);
+  const handleClick = (item) => {
+    scrollToSection(item);
+  };
 
   useEffect(() => {
     const container = containerRef.current;
     const circles = circlesRefs.current;
-    if (isInView && container && circles.length > 0) {
-      const radius = container.offsetWidth / 2;
-      const rotation = 360 / circles.length;
-      circles.forEach((circle, i) => {
-        circle.style.transform = `rotate(${i * rotation}deg) translate(${radius}px) rotate(-${i * rotation}deg)`;
-      });
-    } else if (circles.length > 0) {
-      circles.forEach((circle) => (circle.style.transform = ""));
+    if (isInView) {
+      if (container && circles.length > 0) {
+        const radius = container.offsetWidth / 2;
+        const rotation = 360 / circles.length;
+
+        circles.forEach((circle, i) => {
+          const value = `rotate(${
+            i * rotation
+          }deg) translate(${radius}px) rotate(-${i * rotation}deg)`;
+          circle.style.transform = value;
+        });
+      }
+    } else {
+      if (circles.length > 0) {
+        circles.forEach((circle) => {
+          circle.style.transform = "";
+        });
+      }
     }
   }, [isInView]);
 
   const multipleSpaces = "\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0";
 
   return (
-    <section id="home" className="relative z-10 pb-10 md:pb-16 lg:pb-20">
-      {/* Background */}
+    <section id="home" className="relative z-10">
       <div className="dark:bg-[url('/img/bg-image.svg')] bg-cover absolute z-0 w-full md:h-full aspect-square"></div>
+      <div className="lg:h-[calc(100vh-64px)] container h-full py-5 px-4 md:py-10 md:px-8 lg:py-0 lg:px-0 flex flex-wrap flex-col-reverse md:flex-row items-center justify-center overflow-visible">
 
-      <div className="lg:h-[calc(100vh-64px)] container max-w-[1200px] h-full py-5 pt-16 md:py-10 lg:py-0 lg:pt-0 flex flex-col-reverse md:flex-row items-center justify-center overflow-hidden gap-6">
-        {/* Text Content */}
-        <motion.div variants={containerAnim} initial="initial" whileInView="animate" className="flex flex-col w-full gap-4 md:pr-4 md:w-7/12 lg:w-2/3">
-          <motion.h1 variants={itemAnim} className="h-16 text-4xl font-extrabold tracking-tight text-left text-transparent capitalize xs:text-5xl md:h-20 md:text-6xl lg:text-7xl bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600 bg-clip-text w-fit scroll-m-20">
+        <motion.div
+          variants={uptoDown}
+          initial="initial"
+          whileInView="animate"
+          className="flex flex-col w-full gap-4 md:pr-4 md:w-7/12 lg:w-2/3"
+        >
+          <motion.h1
+            variants={uptoDownItem}
+            className="h-16 text-4xl font-extrabold tracking-tight text-left text-transparent capitalize xs:text-5xl md:h-20 md:text-6xl lg:text-7xl bg-gradient-to-r from-blue-500 via-blue-400 to-blue-600 bg-clip-text w-fit scroll-m-20"
+          >
             {PortfolioData.name}
           </motion.h1>
-          <motion.h2 variants={itemAnim} className="pb-2 text-3xl font-semibold tracking-tight border-b min-h-12 lg:mt-3 border-b-border scroll-m-20 first:mt-0">
-            <Typewriter texts={PortfolioData.typewriterTexts.map((text) => `${text}${multipleSpaces}`)} speed={100} isInView={isInView} />
+          <motion.h2
+            variants={uptoDownItem}
+            className="pb-2 text-3xl font-semibold tracking-tight border-b min-h-12 lg:mt-3 border-b-border scroll-m-20 first:mt-0"
+          >
+            <Typewriter
+              texts={PortfolioData.typewriterTexts.map(text => `${text}${multipleSpaces}`)}
+              speed={100}
+              isInView={isInView}
+            />
           </motion.h2>
-          <motion.p variants={itemAnim} className="text-lg lg:text-justify leading-7 [&:not(:first-child)]:mt-3">
+          <motion.p
+            variants={uptoDownItem}
+            className="text-lg lg:text-justify leading-7 [&:not(:first-child)]:mt-3"
+          >
             {PortfolioData.profileDescription}
           </motion.p>
-
-          <motion.div variants={itemAnim} className="flex flex-col justify-center gap-3 mt-3 xs:flex-row md:justify-start md:gap-5">
+          <motion.div
+            variants={uptoDownItem}
+            className="flex flex-col justify-center gap-3 mt-3 xs:flex-row md:justify-start md:gap-5 "
+          >
             <Button asChild size="hero">
               <Link
                 href="/"
@@ -83,7 +135,6 @@ const Hero = () => {
                 </span>
               </Link>
             </Button>
-
             <Button asChild size="hero" className="bg-card">
               <Link
                 href="/resume"
@@ -93,7 +144,7 @@ const Hero = () => {
                 <span className="absolute z-10 w-full h-full transition-all duration-300 ease-in-out -translate-x-full group-hover:translate-x-0 bg-accent-foreground"></span>
                 <div className="z-20 flex items-center justify-center gap-1 text-base font-bold tracking-widest uppercase md:gap-3 md:text-xl text-primary group-hover:text-muted font-oswald">
                   Get Resume
-                  <div className="relative w-6 h-6">
+                  <div className="relative w-6 h-6 ">
                     <span className="absolute w-12 h-12 border rounded-full opacity-0 pointer-events-none -top-1/2 -left-1/2 border-primary group-hover:border-muted animate-ringOne -z-10"></span>
                     <span className="absolute w-12 h-12 border rounded-full opacity-0 pointer-events-none -top-1/2 -left-1/2 border-primary group-hover:border-muted animate-ringTwo -z-10"></span>
                     <span className="absolute w-12 h-12 border rounded-full opacity-0 pointer-events-none -top-1/2 -left-1/2 border-primary group-hover:border-muted animate-ringThree -z-10"></span>
@@ -104,19 +155,26 @@ const Hero = () => {
             </Button>
           </motion.div>
         </motion.div>
-
-        {/* Image + Social Icons */}
-        <div className="w-full p-4 md:w-5/12 lg:w-1/3 flex justify-center">
-          <div className="relative z-20 grid p-4 border-2 border-gray-800 rounded-full dark:border-border place-items-center" ref={containerRef}>
-            <motion.div variants={scalingAnim} initial="initial" whileInView="animate" className="z-30 overflow-hidden rounded-full">
+        <div className="w-full p-8 md:w-5/12 lg:w-1/3 mt-4">
+          <div
+            className="relative z-20 grid p-8 border-2 border-gray-800 rounded-full dark:border-border place-items-center"
+            ref={containerRef}
+          >
+            <motion.div
+              variants={scaling}
+              initial="initial"
+              whileInView="animate"
+              className="z-30 overflow-hidden rounded-full"
+            >
               <Image
                 src="https://res.cloudinary.com/diazxuntv/image/upload/v1760346263/pro_hqriac.jpg"
                 alt="Ajay"
-                width={600}
-                height={600}
+                width={600}           // desired width
+                height={600}          // desired height
                 className="rounded-full"
-                priority
+                priority              // optional, loads immediately for hero images
               />
+
             </motion.div>
 
             {socialIcons.map((item, index) => (
