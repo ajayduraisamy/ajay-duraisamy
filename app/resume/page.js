@@ -4,16 +4,13 @@ export const metadata = {
   description:
     "Explore the professional resume of Ajay Duraisamy, a passionate Jr. Software Engineer with expertise in React and Next.js.",
   robots: "index, follow",
-  canonical: "https://emonsingha.vercel.app/resume",
+  canonical: "https://ajay-duraisamy.vercel.app/resume",
   openGraph: {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name: "Resume",
-    url: "https://emonsingha.vercel.app/resume",
-    image: {
-      url: "https://emonsingha.vercel.app/img/ogImage.webp",
-      alt: "Ajay Duraisamy's Resume",
-    },
+    url: "https://ajay-duraisamy.vercel.app/resume",
+    
     description:
       "Explore the professional resume of Ajay Duraisamy, a passionate Jr. Software Engineer with expertise in React and Next.js.",
   },
