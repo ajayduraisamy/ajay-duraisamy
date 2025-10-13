@@ -22,8 +22,8 @@ export default function Resume() {
   return (
     <div className="grid w-full pt-16 md:pt-5 overflow-auto bg-background place-items-center">
       <ResumeViewer
-        file="/resume/Emon-Singha-Resume.pdf"
-        downloadName="Emon-Singha-Resume"
+        file="/resume/Full_Stack_Developer_Ajay.pdf"
+        downloadName="Ajay-duraisamy-Resume"
       />
     </div>
   );
