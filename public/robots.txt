@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ajay-duraisamy.vercel.app/
+
+# Sitemaps
+Sitemap: https://ajay-duraisamy.vercel.app/sitemap.xml
