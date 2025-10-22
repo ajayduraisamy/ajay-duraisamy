@@ -32,7 +32,7 @@ This project showcases my skills, experience, and expertise as a **Full-Stack De
 ---
 
 ## Clone 
-``bash
+
 git clone https://github.com/ajayduraisamy/ajay-duraisamy.git
 
 ---
@@ -76,10 +76,5 @@ npm run dev
 
 ---
 
-## ⚡ About Me
-
-I’m a **Full-Stack Developer** passionate about building **scalable, intelligent applications** using modern technologies.  
-I specialize in **MERN stack, Python/Flask, AI/ML integrations**, and **cloud-based architectures**.  
-I focus on **clean code, performance, and innovative solutions** that solve real-world problems.
 
 
